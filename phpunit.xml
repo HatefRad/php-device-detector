@@ -1,0 +1,10 @@
+<phpunit bootstrap="vendor/autoload.php">
+  <testsuites>
+    <testsuite name="PHP Device Detector App">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <extensions>
+      <extension class="Zalas\PHPUnit\Globals\AnnotationExtension" />
+  </extensions>
+</phpunit>
