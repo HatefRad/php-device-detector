@@ -12,7 +12,7 @@ Run the container:
 Visit:    
 `http://localhost:22330/index.html`
 
-If that port is busy (what?!) feel free to change it at `docker-compose.yml`
+If that port is already busy (what?!) feel free to make a copy of `.env.example`, rename it to `.env`, and set your desired port!
 
 ## Documentation
 This app uses the popular [Mobile-Detect](https://github.com/serbanghita/Mobile-Detect/) library and provides an intuitive UI that enables user to detect their device, operating system and browser.   
