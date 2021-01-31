@@ -8,8 +8,8 @@
                 v-for="device in devices"
             >
                 <img class="card-img-top device-picture"
-                    :src="`../public/media/${device.image}`"
-                    alt="Card image cap">
+                     :src="`../public/media/${device.image}`"
+                     alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{ device.type }}
@@ -30,17 +30,18 @@ export default {
             detectedType: '',
         }
     },
+
     methods: {
         getDevices() {
             return new Promise((resolve, reject) => {
                 axios.get('/devices')
-                    .then((response) => {
-                        this.devices = response.data;
-                        resolve(response.data);
-                    }).catch((error) => {
-                        this.error = 'We were not able to list devices!';
-                        reject(error.response.data.errors);
-                    });
+                .then((response) => {
+                    this.devices = response.data;
+                    resolve(response.data);
+                }).catch((error) => {
+                    this.error = 'We were not able to list devices!';
+                    reject(error.response.data.errors);
+                });
             });
         },
         addDeviceClasses(device) {
@@ -54,11 +55,11 @@ export default {
         }
     },
     mounted() {
-        this.$root.$on('deviceDetected', (data) => {
+        this.emitter.on("device-detected", (data) => {
             this.deviceKnown = true;
             this.detectedType = data.type;
-        }
-    )},
+        });
+    },
     created() {
         this.getDevices();
     }
@@ -72,7 +73,7 @@ export default {
 
 .card-img-top {
     width: 50%;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .detected-device {

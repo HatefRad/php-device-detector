@@ -1,11 +1,11 @@
 'use strict'
 
-const { VueLoaderPlugin } = require('vue-loader')
+const {VueLoaderPlugin} = require('vue-loader')
 
 module.exports = {
     mode: 'production',
     entry: [
-        './public/js/app.js'
+        './public/js/main.js'
     ],
     module: {
         rules: [
@@ -26,8 +26,9 @@ module.exports = {
         new VueLoaderPlugin()
     ],
     resolve: {
+        extensions: ['.tsx', '.ts', '.js', '.vue'],
         alias: {
-            vue: 'vue/dist/vue.js'
+            vue: 'vue/dist/vue.esm-bundler.js'
         }
     }
 }
